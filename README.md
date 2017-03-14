@@ -74,3 +74,47 @@ ReactDOM.render(
 
 `this.props.children` 属性表示组件的所有子节点。<br>
 React 提供一个工具方法 `React.Children` 来处理 `this.props.children` 。我们可以用 `React.Children.map` 来遍历子节点，而不用担心 `this.props.children` 的数据类型是 `undefined` 还是 `object`。
+
+## propTypes
+
+propTypes属性，就是用来验证组件实例的属性是否符合要求[demo0601](./demo06/demo0601.html)
+
+```javascript
+ var MyTitle = React.createClass({
+   propTypes: {
+     title: React.PropTypes.string.isRequired,   //验证title属性
+   },
+ 
+   render: function() {
+      return <h1> {this.props.title} </h1>;
+    }
+ });
+ 
+ var data = 123;    //设置title属性为一个数值，控制台会显示一行错误信息。
+ 
+ ReactDOM.render(
+   <MyTitle title={data} />,
+   document.body
+ );
+```  
+
+`getDefaultProps` 方法可以用来设置组件属性的默认值。[demo0602](./demo06/demo0602.html)
+
+```javascript
+var MyTitle = React.createClass({
+  getDefaultProps : function () {
+    return {
+      title : 'Hello World'
+    };
+  },
+
+  render: function() {
+     return <h1> {this.props.title} </h1>;
+   }
+});
+
+ReactDOM.render(
+  <MyTitle />,
+  document.body
+);
+```
