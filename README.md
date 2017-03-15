@@ -1,10 +1,5 @@
 ### [React 入门实例教程-阮一峰](http://www.ruanyifeng.com/blog/2015/03/react.html)
 
-```bash
-$ babel src --out-dir build
-```
-有什么作用？？？？
-
 ## JSX 语法  [demo02](./demo02)
 
 ```javascript
