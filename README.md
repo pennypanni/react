@@ -114,7 +114,7 @@ ReactDOM.render(
 );
 ```
 
-## 组件的生命周期
+## 组件的生命周期 [demo10](./demo10/index.html)
 
 ```javascript
 var Hello = React.createClass({
@@ -155,3 +155,74 @@ ReactDOM.render(
 [关于bind(this)](http://www.jb51.net/article/65850.htm)：
 
 在javascript当中每一个function都是一个对象，所以在这个里var temp=this 指的是function当前的对象。this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。
+
+注意： `render()`函数应该是纯粹的，也就是说该函数不修改组件的 `state`，每次调用都返回相同的结果，不读写 DOM 信息，也不和浏览器交互。如果需要和浏览器交互，在 `componentDidMount()` 中或者其它生命周期方法中做这件事。保持 render() 纯粹，可以使服务器端渲染更加切实可行，也使组件更容易被理解。
+
+***
+
+### [ES6](http://blog.csdn.net/fengyuzhengfan/article/details/52233582)
+
+* 模块
+
+在ES6中，模块的功能主要由 export 和 import 组成。每一个模块都有自己单独的作用域，模块之间的相互调用关系是通过 export 来规定模块对外暴露的接口，通过import来引用其它模块提供的接口。同时还为模块创造了命名空间，防止函数的命名冲突。
+
+* 箭头函数
+
+`=>`不只是关键字function的简写，它还带来了其它好处。箭头函数与包围它的代码共享同一个`this`,能帮你很好的解决this的指向问题。有经验的JavaScript开发者都熟悉诸如`var self = this`;或`var that = this`这种引用外围this的模式。但借助=>，就不需要这种模式了。
+
+箭头函数的箭头=>之前是一个空括号、单个的参数名、或用括号括起的多个参数名，而箭头之后可以是一个表达式（作为函数的返回值），或者是用花括号括起的函数体（需要自行通过return来返回值，否则返回的是undefined）。
+
+```javascript
+// 箭头函数的例子
+()=>1
+v=>v+1
+(a,b)=>a+b
+()=>{
+    alert("foo");
+}
+e=>{
+    if (e == 0){
+        return 0;
+    }
+    return 1000/e;
+}
+```
+
+#### ES5与ES6在导入与导出组件上的不同
+
+`ES5`通过`require`导入
+
+```javascript
+var React = require("react");
+```
+
+`ES6`通过`import`导入
+
+```javascript
+import React from 'react';
+```
+
+另外，ES6支持将组件导入作为一个对象，使用“ * as”修饰即可。
+
+```javascript
+//引入app目录下AboutPage组件作为一个对象，接下来就可使用“AboutPage.”来调用AboutPage的方法及属性了。  
+import  * as AboutPage from './app/AboutPage' 
+```
+
+`ES5`要导出一个类给别的模块用，一般通过`module.exports`来导出
+
+```javascript
+var MyComponent = React.createClass({
+    ...
+});
+module.exports = MyComponent;
+```
+
+`ES6`通常用`export default`来导出类
+
+```javascript
+export default class MyComponent extends Component{
+    ...
+}
+```
+
