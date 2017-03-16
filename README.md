@@ -160,7 +160,9 @@ ReactDOM.render(
 
 ***
 
-### [ES6](http://blog.csdn.net/fengyuzhengfan/article/details/52233582)
+### ECMAScript 6 
+[React速学教程(下)中的ES6](http://blog.csdn.net/fengyuzhengfan/article/details/52233582)<br>
+[ES6入门-阮一峰](http://es6.ruanyifeng.com/#docs/let)
 
 * 模块
 
@@ -202,13 +204,15 @@ var React = require("react");
 import React from 'react';
 ```
 
-另外，ES6支持将组件导入作为一个对象，使用“ * as”修饰即可。
+另外，ES6支持将组件导入作为一个对象，使用`* as`修饰即可。
 
 ```javascript
 //引入app目录下AboutPage组件作为一个对象，接下来就可使用“AboutPage.”来调用AboutPage的方法及属性了。  
 import  * as AboutPage from './app/AboutPage' 
 ```
 
+<br>
+<br>
 `ES5`要导出一个类给别的模块用，一般通过`module.exports`来导出
 
 ```javascript
