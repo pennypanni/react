@@ -213,6 +213,7 @@ import  * as AboutPage from './app/AboutPage'
 
 <br>
 <br>
+
 `ES5`要导出一个类给别的模块用，一般通过`module.exports`来导出
 
 ```javascript
