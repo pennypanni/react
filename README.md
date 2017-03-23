@@ -158,3 +158,20 @@ ReactDOM.render(
 
 注意： `render()`函数应该是纯粹的，也就是说该函数不修改组件的 `state`，每次调用都返回相同的结果，不读写 DOM 信息，也不和浏览器交互。如果需要和浏览器交互，在 `componentDidMount()` 中或者其它生命周期方法中做这件事。保持 render() 纯粹，可以使服务器端渲染更加切实可行，也使组件更容易被理解。
 
+## React中添加样式
+1. 内联样式
+
+  ![style01](./img/style01.png)
+
+  使用驼峰命名法代替原有的`font-size`等格式的样式，如`fontSize`代替`font-size`等
+
+2. 与第一种方法等价
+
+  ![style02](./img/style02.png)
+
+3. 外部样式
+
+  ![style03](./img/style03.png)
+
+  用`className`来添加外部的样式。
+
